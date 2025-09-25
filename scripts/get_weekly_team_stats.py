@@ -122,7 +122,11 @@ def get_total_scoring_by_team(year):
                         f'team_first_name':name_map[team.team_name.rstrip()],
                         f'score':score,
                         f'projected':projected,
-                        f'allowed':allowed
+                        f'allowed':allowed,
+                        f'wins':team.wins,
+                        f'losses':team.losses,
+                        f'wl_pct':(team.wins) / (team.wins + team.losses),
+                        f'standing':np.where(np.array(league.standings()) == team)[0]
                 }, index=[0])   
                 
 
